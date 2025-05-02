@@ -6,7 +6,7 @@
 /*   By: haokumur <haokumur@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 18:01:33 by haokumur          #+#    #+#             */
-/*   Updated: 2025/05/01 18:37:25 by haokumur         ###   ########.fr       */
+/*   Updated: 2025/05/02 11:50:30 by haokumur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	while (s1[start] && ft_strchr(set, s1[start]))
 		start++;
 	end = ft_strlen(s1);
-	while (end > start && ft_strchr(set))
+	while (end > start && ft_strchr(set, s1[end - 1]))
+		end--;
+	return (ft_substr(s1, start, end - start));
 }
