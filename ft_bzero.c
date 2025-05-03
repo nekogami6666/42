@@ -6,7 +6,7 @@
 /*   By: haokumur <haokumur@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 17:29:26 by haokumur          #+#    #+#             */
-/*   Updated: 2025/04/28 19:15:47 by haokumur         ###   ########.fr       */
+/*   Updated: 2025/05/03 13:21:06 by haokumur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_bzero(void *s, size_t n)
 {
 	unsigned char	*p;
-	int				i;
+	size_t			i;
 
 	p = (unsigned char *)s;
 	i = 0;

@@ -6,13 +6,13 @@
 /*   By: haokumur <haokumur@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 16:20:33 by haokumur          #+#    #+#             */
-/*   Updated: 2025/04/28 16:22:43 by haokumur         ###   ########.fr       */
+/*   Updated: 2025/05/03 13:20:14 by haokumur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_strlen(char *str)
+size_t	ft_strlen(const char *str)
 {
 	int	i;
 

@@ -1,30 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
+/*   ft_lstiter_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: haokumur <haokumur@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/03 10:57:35 by haokumur          #+#    #+#             */
-/*   Updated: 2025/05/03 11:07:47 by haokumur         ###   ########.fr       */
+/*   Created: 2025/05/03 15:00:28 by haokumur          #+#    #+#             */
+/*   Updated: 2025/05/03 15:02:21 by haokumur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	ft_putnbr_fd(int n, int fd)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	char	c;
-	long	num;
-
-	num = n;
-	if (num < 0)
+	while (lst)
 	{
-		write(fd, "-", 1);
-		num = -num;
+		f(lst->content);
+		lst = lst->next;
 	}
-	if (num >= 10)
-		ft_putnbr_fd((int)(num / 10), fd);
-	c = '0' + (num % 10);
-	write(fd, &c, 1);
 }

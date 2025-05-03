@@ -5,18 +5,21 @@
 #                                                     +:+ +:+         +:+      #
 #    By: haokumur <haokumur@student.42tokyo.jp>     +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2025/04/28 14:56:30 by haokumur          #+#    #+#              #
-#    Updated: 2025/04/28 14:57:06 by haokumur         ###   ########.fr        #
+#    Created: 2025/05/03 11:30:27 by haokumur          #+#    #+#              #
+#    Updated: 2025/05/03 11:30:27 by haokumur         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-# =====================  変数定義 =====================
-NAME    = libft.a
-CC      = cc
-CFLAGS  = -Wall -Wextra -Werror
-AR      = ar rcs
 
-SRCS = \
+# =====================  変数定義 =====================
+NAME            = libft.a
+CC              = cc
+CFLAGS          = -Wall -Wextra -Werror
+AR              = ar rcs
+RM              = rm -f
+
+# ----- 必須ソース -----------------------------------------------------------
+SRCS            = \
   ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c \
   ft_strlen.c ft_memset.c ft_bzero.c ft_memcpy.c ft_memmove.c \
   ft_strlcpy.c ft_strlcat.c ft_toupper.c ft_tolower.c \
@@ -26,23 +29,34 @@ SRCS = \
   ft_strmapi.c ft_striteri.c \
   ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c
 
-OBJS = $(SRCS:.c=.o)
+# ----- ボーナスソース（ファイル名は _bonus.c が Norm） ----------------------
+SRCS_BONUS      = \
+  ft_lstnew_bonus.c ft_lstadd_front_bonus.c ft_lstsize_bonus.c \
+  ft_lstlast_bonus.c ft_lstadd_back_bonus.c ft_lstdelone_bonus.c \
+  ft_lstclear_bonus.c ft_lstiter_bonus.c ft_lstmap_bonus.c
 
+# オブジェクトに変換
+OBJS            = $(SRCS:.c=.o)
+OBJS_BONUS      = $(SRCS_BONUS:.c=.o)
 
+# =====================  ルール定義 =====================
 all: $(NAME)
 
 $(NAME): $(OBJS)
 	$(AR) $@ $^
 
+bonus: $(OBJS) $(OBJS_BONUS)
+	$(AR) $(NAME) $^
+
 %.o: %.c libft.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f $(OBJS)
+	$(RM) $(OBJS) $(OBJS_BONUS)
 
 fclean: clean
-	rm -f $(NAME)
+	$(RM) $(NAME)
 
 re: fclean all
 
-.PHONY: all clean fclean re
+.PHONY: all bonus clean fclean re
