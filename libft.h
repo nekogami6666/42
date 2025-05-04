@@ -6,7 +6,7 @@
 /*   By: haokumur <haokumur@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/03 13:26:41 by haokumur          #+#    #+#             */
-/*   Updated: 2025/05/03 18:58:38 by haokumur         ###   ########.fr       */
+/*   Updated: 2025/05/04 11:42:51 by haokumur         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,9 @@
 
 /* ────────────────────────────  標準ヘッダ  ──────────────────────────── */
 # include <stddef.h> /* size_t */
+# include <stdint.h> /* SIZE_MAX*/
 # include <stdlib.h> /* malloc, free */
 # include <unistd.h> /* write  */
-# include <stdint.h>
 
 /* ───────────────────────── Part 1 : Libc 再実装 ───────────────────────── */
 int					ft_isalpha(int c);
